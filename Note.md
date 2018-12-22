@@ -55,4 +55,4 @@ In practical, the class system has been replace by CIDR (无类别域间路由) 
 *Address Resolution Protocol*
 **ARP table:** records MAC addresses and IP addresses associated
 *ARP Process*
-![](Pictures/The Bits and Bytes of Computer Networking/ARP.png)
+![](https://raw.githubusercontent.com/ZSiltitan/Coursera-Operating-systems/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/ARP.png)
