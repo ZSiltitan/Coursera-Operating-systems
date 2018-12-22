@@ -12,7 +12,7 @@ MAC address is so unique that there is no way of knowing where can find the loca
 **ARP** Address Resolution Protocol
 Solution: Network Layer - IP
 
-#### 2.1 IP Addresses
+#### 1.2 IP Addresses
 **32 bit (4 octets) address, ofter decribed in decimal numbers
 Dotted Decimal Notation 点分十进制**
 *1 octet can represent 2^8 (0-255) decimal number*
@@ -25,7 +25,7 @@ Dynamic Host Configuration Protocol
 - Static IP addresses for server and devices
 - Dynamtic IP addresses for clients
 
-#### 3.1 IP Datagrams
+#### 1.3 IP Datagrams
 
 **IP Datagrams are the payload after encapsulation from Ethernet headers.** 
 IP datagram also has a payload for upper layer.
@@ -49,3 +49,9 @@ IP Address => Network  + Host Addresses
 |*Class F*|240-255(11110)|N/A|For testing
 
 In practical, the class system has been replace by CIDR (无类别域间路由) , but still very important.
+
+#### 1.4 ARP
+*Address Resolution Protocol*
+**ARP table:** records MAC addresses and IP addresses associated
+*ARP Process*
+![](Pictures/The Bits and Bytes of Computer Networking/ARP.png)
