@@ -47,3 +47,5 @@ IP Address => Network  + Host Addresses
 |Class C|192-223(110)|254(2^8-2)|1st to 3rd octets NetworkID
 |*Class E*|224-239(1110)|N/A|For broadcasting
 |*Class F*|240-255(11110)|N/A|For testing
+
+In practical, the class system has been replace by CIDR (无类别域间路由) , but still very important.
