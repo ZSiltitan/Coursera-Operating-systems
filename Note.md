@@ -41,7 +41,7 @@ Options, Padding
 #### IP Address Classes
 IP Address => Network  + Host Addresses
 |Class|Range(DEC.)(BIN.)|Max Hosts|Rules|
-|-|-|-|-|
+|----|----|----|----|
 |Class A|0-127 (0)|16 Million (2^24-n)|1st octet is used as Network ID|
 |Class B|128-191(10)|64000(2^16-n)|1st and 2nd octets NetworkID|
 |Class C|192-223(110)|254(2^8-2)|1st to 3rd octets NetworkID|
