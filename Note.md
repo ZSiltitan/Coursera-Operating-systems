@@ -1,3 +1,4 @@
+
 Hardware in each layer
 
 |Hardware|Layer|Protocol|Protocol Data Unit|Addressing
@@ -76,6 +77,7 @@ In practical, the class system has been replace by CIDR (无类别域间路由) 
 *ARP Process*
 ![](https://raw.githubusercontent.com/ZSiltitan/Coursera-Operating-systems/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/ARP.png)
 
+### 2. Subnetting
 #### 2.1 subnetting
 Split a large network into a few individual subnetworks
  ``` mermaid
@@ -122,3 +124,22 @@ Subnet mask calculation is using **AND** calculation to determine if the IP addr
 
 The subnet ID is 9.100.100, will use it to determine to check.
 
+#### CIDR
+Classless inter-domain Routing
+9.100.100.100 **/27** : this slash content is CIDR notation
+***No need to consider classes anymore in this  case.***
+Speciality of CIDR:
+**CIDR**: **combine the address spaces into one continguous trunk** 
+Like one with class C:  *(1)* 255.255.255.0/24 class C not enough, then
+Can use *(2)* 255.255.254.0/23
+(1) got 2^8 = 256 host bits,  *(256-2) = 254, 254x2 = 508* 
+(2) got 2^9 = 512 host bits, *(512 - 2) = 510* 
+
+CIDR is using some the network bits as host bits.
+[Very good description of CIDR and VLSM](http://blog.51cto.com/liufei888/1250259)
+
+### 3. Routing
+#### 3.1 Concepts
+|Network A|router 1|Network B|router 2|Network C|
+|-|-|-|-|-|
+|PC: IP addr 1--Ethernet Frame-->router1 addr1|router1 received -- **encapsulate into IP datagram** -- Checked the router table, find the **fastest** way to Network C -- **Duplicate the IP datagram, TTL -1, calculate new checksum** -- encapsulate into new Ethernet Frame -- send|router 1 set its MAC addr in Network B as source addr and send to router 2|same as router1's step  -- encapsulate into new Ethernet Frame|router 2 IP addr -- receive|
