@@ -145,6 +145,39 @@ CIDR is using some the network bits as host bits.
 |-|-|-|-|-|
 |PC: IP addr 1--Ethernet Frame-->router1 addr1|router1 received -- **encapsulate into IP datagram** -- Checked the router table, find the **fastest** way to Network C -- **Duplicate the IP datagram, TTL -1, calculate new checksum** -- encapsulate into new Ethernet Frame -- send|router 1 set its MAC addr in Network B as source addr and send to router 2|same as router1's step  -- encapsulate into new Ethernet Frame|router 2 IP addr -- receive|
 
+#### 3.2 Routing table
+|Destination network|next hub|Total hub|interface|
+|-|-|-|-|
+|IP addr, subnet mask(CIDR)|
+
+Relationship between IP, subnet mask, CIDR:
+IP|192.168.1.1
+|:-|-
+Subnet mask|255.255.255.0
+CIDR|192.168.1.1/24
+IP and Subnet mask can use one CIDR to represent.
+
+
+#### 3.3 Interior gateway protocols
+Distance vector protocol
+```mermaid
+graph LR
+A-->B
+F.->A
+F-->E
+B-->C
+C-->D
+C-->E
+style A fill: #ffff00
+```
+React slow to non-directly linked nodes.
+
+#### Link state protocol
+![](https://raw.githubusercontent.com/ZSiltitan/Coursera-Operating-systems/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/link%20state%20protocol.png)
+
+Every router knows about every others' details:
+So need more **memory** and more **processing power**
+
 
 #### 3.4 Exterior Gateway Protocols
 **IANA**: Internet Assigned Number Authority
@@ -165,3 +198,9 @@ Could be used in internal networks, will never be routed by co-routers.
 
 RFC
 
+### 4. Transport and application layers
+
+#### 4.1 Concept
+
+Transport layer: direct the traffic to specific network applications
+Application layer: make the application communicate in the way they all understand 
