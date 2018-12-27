@@ -1,4 +1,5 @@
 
+
 Hardware in each layer
 
 |Hardware|Layer|Protocol|Protocol Data Unit|Addressing
@@ -148,3 +149,19 @@ CIDR is using some the network bits as host bits.
 #### 3.4 Exterior Gateway Protocols
 **IANA**: Internet Assigned Number Authority
 **ASN**: Autonomous System Number is *32 bits* in decimal form, used and updated by Internet core routing tables.
+
+#### 3.5 Routing protocols
+RIP
+EIGRP
+OSPF
+BGP
+
+#### 3.6 Non routable address
+
+10.0.0.0/8
+172.16.0.0/12
+192.168.0.0/16
+Could be used in internal networks, will never be routed by co-routers.
+
+RFC
+
