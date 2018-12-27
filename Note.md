@@ -143,3 +143,8 @@ CIDR is using some the network bits as host bits.
 |Network A|router 1|Network B|router 2|Network C|
 |-|-|-|-|-|
 |PC: IP addr 1--Ethernet Frame-->router1 addr1|router1 received -- **encapsulate into IP datagram** -- Checked the router table, find the **fastest** way to Network C -- **Duplicate the IP datagram, TTL -1, calculate new checksum** -- encapsulate into new Ethernet Frame -- send|router 1 set its MAC addr in Network B as source addr and send to router 2|same as router1's step  -- encapsulate into new Ethernet Frame|router 2 IP addr -- receive|
+
+
+#### 3.4 Exterior Gateway Protocols
+**IANA**: Internet Assigned Number Authority
+**ASN**: Autonomous System Number is *32 bits* in decimal form, used and updated by Internet core routing tables.
