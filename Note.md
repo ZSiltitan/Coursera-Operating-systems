@@ -1,4 +1,5 @@
 
+
 Hardware in each layer
 
 |Hardware|Layer|Protocol|Protocol Data Unit|Addressing
@@ -143,3 +144,19 @@ CIDR is using some the network bits as host bits.
 |Network A|router 1|Network B|router 2|Network C|
 |-|-|-|-|-|
 |PC: IP addr 1--Ethernet Frame-->router1 addr1|router1 received -- **encapsulate into IP datagram** -- Checked the router table, find the **fastest** way to Network C -- **Duplicate the IP datagram, TTL -1, calculate new checksum** -- encapsulate into new Ethernet Frame -- send|router 1 set its MAC addr in Network B as source addr and send to router 2|same as router1's step  -- encapsulate into new Ethernet Frame|router 2 IP addr -- receive|
+
+#### 3.4 Routing protocols
+RIP
+EIGRP
+OSPF
+BGP
+
+#### 3.5 Non routable address
+
+10.0.0.0/8
+172.16.0.0/12
+192.168.0.0/16
+Could be used in internal networks, will never be routed by co-routers.
+
+RFC
+
