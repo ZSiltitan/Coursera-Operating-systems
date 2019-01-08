@@ -1,3 +1,5 @@
+OSI 5 Layers Model
+![OSI](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/osi5layer.png)
 
 
 Hardware in each layer
@@ -204,3 +206,15 @@ RFC
 
 Transport layer: direct the traffic to specific network applications
 Application layer: make the application communicate in the way they all understand 
+
+#### 4.2 TCP Header
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/TCP%20header.png)
+|Source port|||destination port|
+|-|-|-|-|-|
+|Sequence number|
+|Acknowledge number|
+|Header length|empty|control flags|Window|
+|Checksum|||Urgent
+|Option|||Padding
+|Data Payload(varies)|
