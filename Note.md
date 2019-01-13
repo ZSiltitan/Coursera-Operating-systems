@@ -37,6 +37,7 @@ Dynamic Host Configuration Protocol
 IP datagram also has a payload for upper layer.
 
 IP datagram:  
+
 |0|4|8|16|19|31|
 |-|-|-|-|-|-|-|
 |version|header length|service type(QoS)|total length|
@@ -109,9 +110,10 @@ C--partially uses for---D[Subset ID]
 |Part Explanation|Network ID|with 1: Subnet ID||with 0: Host ID|
 
 *Note: This sample has 254 host ID available because 0 is generally not used and 255 reserves a broadcast address*    
-Another example:
+Another example:    
+
 |IP |9.|100.|100.|100|
-|:-|-|-|-|-|
+|:-|-|-|-|
 |Subnet|255.|255.|255.|224|
 |dec|11111111|11111111|11111111|11100000|
 Means only last 5 bits is host ID
