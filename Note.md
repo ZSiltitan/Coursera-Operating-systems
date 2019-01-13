@@ -1,3 +1,4 @@
+
 OSI 5 Layers Model
 ![OSI](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/osi5layer.png)
 
@@ -207,6 +208,8 @@ RFC
 Transport layer: direct the traffic to specific network applications
 Application layer: make the application communicate in the way they all understand 
 
+Ports: 0-65535
+
 #### 4.2 TCP Header
 
 ![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/TCP%20header.png)
@@ -218,3 +221,68 @@ Application layer: make the application communicate in the way they all understa
 |Checksum|||Urgent
 |Option|||Padding
 |Data Payload(varies)|
+
+#### 4.3 Six TCP Control flags
+
+ACK, SYN, FIN, URG, RST, PSH
+    
+        
+**Establish TCP connection**
+*The 3 way handshake*
+``` mermaid
+graph LR
+A[PC a]--SYN-->B[PC b]
+```
+``` mermaid
+graph RL
+C[PC b]--ACK,SYN-->D[PC a]
+```
+``` mermaid
+graph LR
+E[PC a]--ACK-->F[PC b]
+```
+
+**Ready to  close the connection**
+*The 4 way handshake*
+``` mermaid
+graph RL
+A[PC b]--FIN-->B[PC a]
+```
+``` mermaid
+graph LR
+C[PC a]--ACK-->E[PC b]
+```
+``` mermaid
+graph LR
+E[PC a]--FIN-->F[PC b]
+```
+``` mermaid
+graph RL
+E[PC b]--ACK-->F[PC a]
+```
+
+
+#### 4.4 TCP Socket States
+
+|Server|Client|
+|-|-|
+|Listen||
+||SYN_SENT|
+|SYN-RECEIVED||
+|ESTABLISHED|ESTABLISHED
+|FIN_WAIT|FIN_WAIT
+|CLOSE_WAIT|CLOSE_WAIT
+|CLOSED|CLOSED
+
+#### 4.5 Connection-oriented and Connectionless Protocols
+
+Connection-oriented: **TCP**
+Connectionless Protocols (without acknowledge): **UDP**
+
+TCP will take more bandwidth since need to check all the acknowledge or what. With the sequence number you can resend the data segment which you lost in a certain part.
+
+#### 4.6 Firewall
+
+Activate in **transport layer** and block certain ports from connecting.
+
+Like website server will block port other than 80 (for user viewing the webpage) 
