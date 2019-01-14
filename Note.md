@@ -221,7 +221,7 @@ Ports1-1023: System ports.
 
 Ports1024-49151: Registered ports.
 
-Ports49152-65535: Private or ephemeral ports.
+Ports49152-65535: Private or ephemeral ports, for establishing outbount connections. (Client connect with a server.)
 
 #### 4.1.2 TCP Header
 
