@@ -37,8 +37,9 @@ Dynamic Host Configuration Protocol
 IP datagram also has a payload for upper layer.
 
 IP datagram:  
+
 |0|4|8|16|19|31|
-|-|-|-|-|-|-|-|
+|-|-|-|-|-|-|
 |version|header length|service type(QoS)|total length|
 |identification|||flag|fragment offset||
 |TTL||Protocol|Header Checksum|
@@ -98,18 +99,20 @@ A[IP Address]-->B[Network ID]
 A[IP Address]-->C[Host ID]
 C--partially uses for---D[Subset ID]
 ```
-**Subnet Masks**
+**Subnet Masks**    
+
 32 bits
 
 |IP |9.|100.|100.|100|
-|:--|--|--|--|--|--|
+|:--|--|--|--|--|
 |IP(bin)|00001001|01100100|01100100|01100100|
 |Subnet Mask(bin)|11111111|1111111|11111111|00000000|
 |Subnet (dec)|255.|255.|255.|0|
 |Part Explanation|Network ID|with 1: Subnet ID||with 0: Host ID|
 
 *Note: This sample has 254 host ID available because 0 is generally not used and 255 reserves a broadcast address*    
-Another example:
+Another example:    
+
 |IP |9.|100.|100.|100|
 |:-|-|-|-|-|
 |Subnet|255.|255.|255.|224|
@@ -119,7 +122,8 @@ The IP address can be represented as 9.100.100.100/27 (because of 27 0s)
 
 
 #### 2.3 Subnet mask in binary math
-Subnet mask calculation is using **AND** calculation to determine if the IP address is on the same network.
+Subnet mask calculation is using **AND** calculation to determine if the IP address is on the same network.    
+
 |IP Address|9|100|100|100|
 |:-|-|-|-|-|
 |AND|AND|AND|AND|AND|
@@ -153,7 +157,8 @@ CIDR is using some the network bits as host bits.
 |-|-|-|-|
 |IP addr, subnet mask(CIDR)|
 
-Relationship between IP, subnet mask, CIDR:
+Relationship between IP, subnet mask, CIDR:    
+
 IP|192.168.1.1
 |:-|-
 Subnet mask|255.255.255.0
@@ -214,7 +219,7 @@ Ports: 0-65535
 
 ![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/TCP%20header.png)
 |Source port|||destination port|
-|-|-|-|-|-|
+|-|-|-|-|
 |Sequence number|
 |Acknowledge number|
 |Header length|empty|control flags|Window|
