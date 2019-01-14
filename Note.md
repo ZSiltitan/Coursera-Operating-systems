@@ -277,6 +277,10 @@ E[PC b]--ACK-->F[PC a]
 
 #### 4.1.4 TCP Socket States
 
+A socket is a instantiation of a potiential endpoint in TCP connection.    
+TCP sockets need actual programs to instantiate them.    
+Compared with ports: A port is more virtual descriptive thing, means your can send traffic to any ports you want, but you will only get responsed if a programs has opened a socket on that port.
+
 |Server|Client|
 |-|-|
 |Listen||
