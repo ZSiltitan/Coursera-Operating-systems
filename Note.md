@@ -208,14 +208,22 @@ RFC
 
 ### 4. Transport and application layers
 
-#### 4.1 Concept
+#### 4.1.1 Concept
 
 Transport layer: direct the traffic to specific network applications
 Application layer: make the application communicate in the way they all understand 
 
 Ports: 0-65535
 
-#### 4.2 TCP Header
+Port0: Communication between different programs on the same computer.
+
+Ports1-1023: System ports.
+
+Ports1024-49151: Registered ports.
+
+Ports49152-65535: Private or ephemeral ports.
+
+#### 4.1.2 TCP Header
 
 ![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/TCP%20header.png)
 |Source port|||destination port|
@@ -227,7 +235,7 @@ Ports: 0-65535
 |Option|||Padding
 |Data Payload(varies)|
 
-#### 4.3 Six TCP Control flags
+#### 4.1.3 Six TCP Control flags
 
 ACK, SYN, FIN, URG, RST, PSH
     
@@ -267,7 +275,7 @@ E[PC b]--ACK-->F[PC a]
 ```
 
 
-#### 4.4 TCP Socket States
+#### 4.1.4 TCP Socket States
 
 |Server|Client|
 |-|-|
@@ -279,15 +287,51 @@ E[PC b]--ACK-->F[PC a]
 |CLOSE_WAIT|CLOSE_WAIT
 |CLOSED|CLOSED
 
-#### 4.5 Connection-oriented and Connectionless Protocols
+#### 4.1.5 Connection-oriented and Connectionless Protocols
 
 Connection-oriented: **TCP**
 Connectionless Protocols (without acknowledge): **UDP**
 
 TCP will take more bandwidth since need to check all the acknowledge or what. With the sequence number you can resend the data segment which you lost in a certain part.
 
-#### 4.6 Firewall
+#### 4.1.6 Firewall
 
 Activate in **transport layer** and block certain ports from connecting.
 
 Like website server will block port other than 80 (for user viewing the webpage) 
+
+
+#### 4.2 Application Layer
+
+
+Server need to share the same protocol to speak to different web browsers.
+
+Web server: Microsoft IIS, Apache, nginx
+
+#### 4.2.2 Application Layer and 7 level OSI Model
+In OSI Model
+
+```mermaid
+graph BT
+subgraph Application Layer
+	SessionLayer-->PresentationLayer
+	PresentationLayer-->ApplicationLayer
+end
+	TransportLayer-->SessionLayer
+```
+
+**Session Layer**: Unencapsulate the data and pass it to Presentation Layer
+**Presentation Layer**: Make sure Application Layer can understand the unencapsulated data.
+
+#### 4.2.3 All the layers working in Unison
+
+**Very Important!!!**
+
+Revise the course for the whole process of transporting data:
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Unison%20process1.png)
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Unison%20process2.png)
+
+Standard TTL number: 64
+
