@@ -237,7 +237,7 @@ Ports49152-65535: Private or ephemeral ports, for establishing outbount connecti
 
 #### 4.1.3 Six TCP Control flags
 
-ACK, SYN, FIN, URG, RST, PSH
+ACK, SYN, FIN, URG(not in use), RST, PSH
     
         
 **Establish TCP connection**
