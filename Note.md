@@ -339,3 +339,43 @@ Revise the course for the whole process of transporting data:
 
 Standard TTL number: 64
 
+### 5. Network Services
+
+#### 5.1 Name Resolution
+DNS: domain name system 
+Domain name: 
+ 1. can be resolved by DNS
+ 2. can keep the website availabe even if the IP(data center) is changed    
+
+To increase the speed for people visiting faster, the website company may have different data centre in different places. Then by entering the domain name can choose the closest one to visit.
+
+#### 5.2 Steps of name resolution
+4 Things need to be configured for network:
+- IP address,
+- Subnet mask,
+- Gateway for a host, 
+- DNS.
+
+5 primary types of DNS servers:
+
+1. Caching name servers,
+2. Recursive name servers,
+3. Root name servers,
+4. TLD name servers,
+5. Authoritative name servers.
+
+All domain names in caching name server have a TTL(time to live).
+
+```mermaid
+graph LR
+A[Recursive name server]--domain name-->B[Root name server]
+B[Root name server]--TLD e.g .com, .cn-->C[TLD name server]
+C[TLD name server]--last 2 parts:e.g google.com--> D[Authoritative name server]
+```
+Authoritative name server is owned by organisation
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/DNS%20servers.png)
+
+*Technique: **Anycast*** 
+A technique to route traffic to different destinations depending on factors: location, congestion or link health.
+
+#### DNS and UDP    
