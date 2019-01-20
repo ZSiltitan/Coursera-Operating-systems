@@ -1,4 +1,5 @@
 
+
 OSI 5 Layers Model
 ![OSI](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/osi5layer.png)
 
@@ -379,3 +380,11 @@ Authoritative name server is owned by organisation
 A technique to route traffic to different destinations depending on factors: location, congestion or link health.
 
 #### DNS and UDP    
+Using TCP protocal to handle DNS request will cause **44** packets while using UDP will only use **8** packets.
+
+![TCP](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/44TCPDNS.png)
+
+![UDP](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/8UDPDNS.png)
+
+But TCP is still in use while the packet is too large to be sent in UDP.
+
