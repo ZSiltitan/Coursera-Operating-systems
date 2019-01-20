@@ -388,3 +388,19 @@ Using TCP protocal to handle DNS request will cause **44** packets while using U
 
 But TCP is still in use while the packet is too large to be sent in UDP.
 
+#### Resource Record Types
+
+**A records**: multi A records then use **Round Robin**, for **IPv4**
+
+Example: microsoft.com got 4 records of 10.1.1.1, 10.1.1.2, 10.1.1.3, 10.1.1.4 
+When DNS receives 'microsoft.com', the 4 IPs will be returned in the sequence: 1,2,3,4 then for next visit, will be 2,3,4,1
+
+**Quad A records(AAAA)**: same as A records, just for **IPv6**
+
+CNAME records: redirect different names to the destination site
+
+MX records: for emails
+
+SRV records: for other services
+
+TXT records: for txt records, mostly for configurations
