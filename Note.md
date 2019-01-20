@@ -39,7 +39,7 @@ IP datagram also has a payload for upper layer.
 IP datagram:  
 
 |0|4|8|16|19|31|
-|-|-|-|-|-|-|-|
+|-|-|-|-|-|-|
 |version|header length|service type(QoS)|total length|
 |identification|||flag|fragment offset||
 |TTL||Protocol|Header Checksum|
@@ -99,11 +99,12 @@ A[IP Address]-->B[Network ID]
 A[IP Address]-->C[Host ID]
 C--partially uses for---D[Subset ID]
 ```
-**Subnet Masks**
+**Subnet Masks**    
+
 32 bits
 
 |IP |9.|100.|100.|100|
-|:--|--|--|--|--|--|
+|:--|--|--|--|--|
 |IP(bin)|00001001|01100100|01100100|01100100|
 |Subnet Mask(bin)|11111111|1111111|11111111|00000000|
 |Subnet (dec)|255.|255.|255.|0|
@@ -121,7 +122,8 @@ The IP address can be represented as 9.100.100.100/27 (because of 27 0s)
 
 
 #### 2.3 Subnet mask in binary math
-Subnet mask calculation is using **AND** calculation to determine if the IP address is on the same network.
+Subnet mask calculation is using **AND** calculation to determine if the IP address is on the same network.    
+
 |IP Address|9|100|100|100|
 |:-|-|-|-|-|
 |AND|AND|AND|AND|AND|
@@ -155,7 +157,8 @@ CIDR is using some the network bits as host bits.
 |-|-|-|-|
 |IP addr, subnet mask(CIDR)|
 
-Relationship between IP, subnet mask, CIDR:
+Relationship between IP, subnet mask, CIDR:    
+
 IP|192.168.1.1
 |:-|-
 Subnet mask|255.255.255.0
@@ -205,18 +208,26 @@ RFC
 
 ### 4. Transport and application layers
 
-#### 4.1 Concept
+#### 4.1.1 Concept
 
 Transport layer: direct the traffic to specific network applications
 Application layer: make the application communicate in the way they all understand 
 
 Ports: 0-65535
 
-#### 4.2 TCP Header
+Port0: Communication between different programs on the same computer.
+
+Ports1-1023: System ports.
+
+Ports1024-49151: Registered ports.
+
+Ports49152-65535: Private or ephemeral ports, for establishing outbount connections. (Client connect with a server.)
+
+#### 4.1.2 TCP Header
 
 ![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/TCP%20header.png)
 |Source port|||destination port|
-|-|-|-|-|-|
+|-|-|-|-|
 |Sequence number|
 |Acknowledge number|
 |Header length|empty|control flags|Window|
@@ -224,9 +235,9 @@ Ports: 0-65535
 |Option|||Padding
 |Data Payload(varies)|
 
-#### 4.3 Six TCP Control flags
+#### 4.1.3 Six TCP Control flags
 
-ACK, SYN, FIN, URG, RST, PSH
+ACK, SYN, FIN, URG(not in use), RST, PSH
     
         
 **Establish TCP connection**
@@ -264,7 +275,11 @@ E[PC b]--ACK-->F[PC a]
 ```
 
 
-#### 4.4 TCP Socket States
+#### 4.1.4 TCP Socket States
+
+A socket is a instantiation of a potiential endpoint in TCP connection.    
+TCP sockets need actual programs to instantiate them.    
+Compared with ports: A port is more virtual descriptive thing, means your can send traffic to any ports you want, but you will only get responsed if a programs has opened a socket on that port.
 
 |Server|Client|
 |-|-|
@@ -276,15 +291,91 @@ E[PC b]--ACK-->F[PC a]
 |CLOSE_WAIT|CLOSE_WAIT
 |CLOSED|CLOSED
 
-#### 4.5 Connection-oriented and Connectionless Protocols
+#### 4.1.5 Connection-oriented and Connectionless Protocols
 
 Connection-oriented: **TCP**
 Connectionless Protocols (without acknowledge): **UDP**
 
 TCP will take more bandwidth since need to check all the acknowledge or what. With the sequence number you can resend the data segment which you lost in a certain part.
 
-#### 4.6 Firewall
+#### 4.1.6 Firewall
 
 Activate in **transport layer** and block certain ports from connecting.
 
 Like website server will block port other than 80 (for user viewing the webpage) 
+
+
+#### 4.2 Application Layer
+
+
+Server need to share the same protocol to speak to different web browsers.
+
+Web server: Microsoft IIS, Apache, nginx
+
+#### 4.2.2 Application Layer and 7 level OSI Model
+In OSI Model
+
+```mermaid
+graph BT
+subgraph Application Layer
+	SessionLayer-->PresentationLayer
+	PresentationLayer-->ApplicationLayer
+end
+	TransportLayer-->SessionLayer
+```
+
+**Session Layer**: Unencapsulate the data and pass it to Presentation Layer
+**Presentation Layer**: Make sure Application Layer can understand the unencapsulated data.
+
+#### 4.2.3 All the layers working in Unison
+
+**Very Important!!!**
+
+Revise the course for the whole process of transporting data:
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Unison%20process1.png)
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Unison%20process2.png)
+
+Standard TTL number: 64
+
+### 5. Network Services
+
+#### 5.1 Name Resolution
+DNS: domain name system 
+Domain name: 
+ 1. can be resolved by DNS
+ 2. can keep the website availabe even if the IP(data center) is changed    
+
+To increase the speed for people visiting faster, the website company may have different data centre in different places. Then by entering the domain name can choose the closest one to visit.
+
+#### 5.2 Steps of name resolution
+4 Things need to be configured for network:
+- IP address,
+- Subnet mask,
+- Gateway for a host, 
+- DNS.
+
+5 primary types of DNS servers:
+
+1. Caching name servers,
+2. Recursive name servers,
+3. Root name servers,
+4. TLD name servers,
+5. Authoritative name servers.
+
+All domain names in caching name server have a TTL(time to live).
+
+```mermaid
+graph LR
+A[Recursive name server]--domain name-->B[Root name server]
+B[Root name server]--TLD e.g .com, .cn-->C[TLD name server]
+C[TLD name server]--last 2 parts:e.g google.com--> D[Authoritative name server]
+```
+Authoritative name server is owned by organisation
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/DNS%20servers.png)
+
+*Technique: **Anycast*** 
+A technique to route traffic to different destinations depending on factors: location, congestion or link health.
+
+#### DNS and UDP    
