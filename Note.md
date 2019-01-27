@@ -1,5 +1,6 @@
 
 
+
 OSI 5 Layers Model
 ![OSI](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/osi5layer.png)
 
@@ -404,3 +405,78 @@ MX records: for emails
 SRV records: for other services
 
 TXT records: for txt records, mostly for configurations
+
+More introduction for resource records: [域名服务器记录类型列表](More%20introduction%20for%20resource%20records:%20https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%A8%98%E9%8C%84%E9%A1%9E%E5%9E%8B%E5%88%97%E8%A1%A8)
+
+#### Anatomy of a Domain Name
+
+www(1).google(2).com(3)
+
+(1). **com**: TLD -- controlled by ICANN
+(2) **google**: domain  use to demarcate where control moves from TLD server to authoritative server 
+(3) **www**: subdomain -- sell by registrar
+
+**FQDN**: Fully Qualified Domain Name
+
+DNS can support **127** levels,
+domain name each section can support **63** characters and an FQDN is limited to **255** characters
+
+#### DNS Zones
+
+for easier control over multiple level of a domain
+
+zone file: SOA(start of authority), NS(name server) records
+
+### Dynamic Host Configuration protocol    
+#### Overview of DHCP    
+**DHCP:** 
+Can automatically set the configuration in one network
+ 1. IP address (mostly different)
+ 2.  Subnet mask (mostly the same)
+ 3.  Gateway (mostly the same)
+ 4. Name server (mostly the same)
+
+**Ways:**
+Dynamic allocation: IP could be different
+Automatic allocation: a bit different: the DHCP server is asked to record which IP the certain device used in the past, and will assign the same IP to the same device each time if possible    
+Fixed allocation: require MAC address and IPs
+
+Whats more: DHCP can help set NTP servers (Network time protocol)
+
+
+#### DHCP in Action    
+DHCPDISCOVER -> DHCPOFFER -> DHCP REQUEST -> DHCPACK    
+
+DHCPDISCOVER: attempt to get network configuration
+0.0.0.0:68 -> 255.255.255.255:67
+DHCPOFFER: offer one IP
+255.255.255.255:68 <- 192.168.1.1:67 (tell by MAC field)    
+DHCP REQUEST: confirm to like to have the IP server offered 
+0.0.0.0:68 -> 255.255.255.255:67
+PHCPACK(acknowledge): acknowledge message
+255.255.255.255:68 <- 192.168.1.1:67
+
+Now the client can use the configuration
+
+### Network address translation
+#### Basics of NAT
+
+**NAT**: Allow a gateway(firewall or router often) to rewrite the source IP of an outgoing IP datagram while keep its original IP to rewrite it back when response.
+**IP masquerading**
+![NAT](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/NAT.png)
+
+so no one can establish connection to your computer if they don't know what IP address it has.
+*One to many NAT*
+
+#### NAT and the Transport Layer
+**Port preservation**    
+A technique where the source port chose **randomly** by client is the same port used by router.(ephemral ports: 49152-65535)
+
+![port preservation 1](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/port%20preservation1.png)
+
+![port preservation 2](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/port%20preservation2.png)
+
+**Port forwarding**
+A technique where the specific destination ports can be configured to always be delivered to **specific** nodes.
+
+![port forwarding](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/port%20forwarding.png)
