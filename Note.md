@@ -1,6 +1,7 @@
 
 
 
+
 OSI 5 Layers Model
 ![OSI](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/osi5layer.png)
 
@@ -448,13 +449,13 @@ Whats more: DHCP can help set NTP servers (Network time protocol)
 DHCPDISCOVER -> DHCPOFFER -> DHCP REQUEST -> DHCPACK    
 
 DHCPDISCOVER: attempt to get network configuration
-0.0.0.0:68 -> 255.255.255.255:67
+0.0.0.0:68 -> 255.255.255.255:67    
 DHCPOFFER: offer one IP
 255.255.255.255:68 <- 192.168.1.1:67 (tell by MAC field)    
-DHCP REQUEST: confirm to like to have the IP server offered 
-0.0.0.0:68 -> 255.255.255.255:67
-PHCPACK(acknowledge): acknowledge message
-255.255.255.255:68 <- 192.168.1.1:67
+DHCP REQUEST: confirm to like to have the IP server offered    
+0.0.0.0:68 -> 255.255.255.255:67    
+PHCPACK(acknowledge): acknowledge message    
+255.255.255.255:68 <- 192.168.1.1:67    
 
 Now the client can use the configuration
 
@@ -480,3 +481,15 @@ A technique where the source port chose **randomly** by client is the same port 
 A technique where the specific destination ports can be configured to always be delivered to **specific** nodes.
 
 ![port forwarding](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/port%20forwarding.png)
+
+#### The limit of IPv4, NAT, Non-Routable Address Space    
+RIR: Regional Internet Registries
+
+AFNIC: Africa    
+ARIN: USA    
+APNIC: Asia, Austrilia, Pacific areas    
+LACNIC: Carribean, Central and South America    
+RIPE: Russia, Europe
+
+All have run out IP addresses, so currently using NAT, will use IPv6 to solve the problem in the future.
+
