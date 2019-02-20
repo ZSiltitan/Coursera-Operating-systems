@@ -493,3 +493,38 @@ RIPE: Russia, Europe
 
 All have run out IP addresses, so currently using NAT, will use IPv6 to solve the problem in the future.
 
+### VPNs and Proxies
+#### Virtual Private Networks
+
+VPN: **Tunneling** protocol
+
+Using the payload section in transport layer. 
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/VPN.png)
+
+Using encrypted tunnels.
+
+#### Proxy service
+
+A server that acts on behalf of a client in order to access another service.
+
+Proxy:
+
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Web%20proxy.png)
+
+Could be also used to filter request (like block Twitter in office)
+Reverse Proxy(for server):
+
+
+
+Many servers behind one server to reduce the workload;   
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Reverse%20Proxy.png)
+ 
+Another way is to deal with decryption.
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Reverse%20Proxy%20Decryption.png)
+
+Could conclude:    
+Proxies are any servers that act as a intermediary between server and clients. 
+
