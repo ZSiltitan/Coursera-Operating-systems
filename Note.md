@@ -378,6 +378,9 @@ C[TLD name server]--last 2 parts:e.g google.com--> D[Authoritative name server]
 Authoritative name server is owned by organisation
 ![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/DNS%20servers.png)
 
+
+there are 13 total root name servers
+
 *Technique: **Anycast*** 
 A technique to route traffic to different destinations depending on factors: location, congestion or link health.
 
@@ -528,3 +531,63 @@ Another way is to deal with decryption.
 Could conclude:    
 Proxies are any servers that act as a intermediary between server and clients. 
 
+
+## Connecting to the Internet
+#### Dial-up, Modems, and Point-to-Point protocols
+
+**PSTN**: public Switched Telephone Network also called    
+**POTS**: Plain Old telephone services
+
+Dial-up technology use devices called Modems: modulator/Demodulator
+
+Have very low Baud rate (how many bits can be passed across a phone)
+
+#### T-Carrier Technologies
+
+T1: Transmission System 1: Every individual phone call was made over individual pairs of copper wire before Transmission System 1
+
+By AT&T, T3 = 28 * T1 = 1.544mbps * 28 = 44.736 mbps
+
+#### Digital Subscriber Lines
+
+DSL: use DSLAM
+(数字用户线路)
+ADSL: asymmetric digital subscriber line: Upload < download speed, most for clients use    
+SDSL: symmetric digital subscriber line
+
+#### Cable broadband
+
+Cable broadband is based on cabled TV systems (first don't have since people use TV towers and antennas)
+
+Cable broadband compare with other broadbands:
+
+Cable is a shared bandwidth technology, compared with a DSL
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/cable%20vs%20DSL.png)
+
+Managed by cable modem connect with (CMTS) Cable modem termination system
+
+#### Fiber connections
+
+Use light instead of electrical currents.
+
+FTTX: Fiber to the X (X)
+
+FTTN: Fiber to the neighbourhood: fiber first connects to a cabinet then serves **a certain amount to population** then copper cables for last mile
+
+FTTB: Fiber to the building(business): fiber first connects to a building then serves **a building** then copper cables for last mile
+
+FTTH: Fiber to the home: fiber first connects to a resident then serves **a building** then copper cables for last mile
+
+FTTP(Premises) = FTTB & FTTH
+
+demarcation point is ONT(Optical network terminator) instead of modems
+
+
+#### Protocols
+
+Both data link layers
+
+PPP: point to point 点对点协议
+
+PPPoE: point ot point over Ethernets 以太网上的点对点协议
