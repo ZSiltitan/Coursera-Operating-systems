@@ -593,3 +593,80 @@ Both data link layers
 PPP: point to point 点对点协议
 
 PPPoE: point ot point over Ethernets 以太网上的点对点协议
+
+#### Wide Area Network Techonologies
+
+How WAN works
+
+Local loop - ISP - Local loop
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/WAN.png)
+
+帧中继（frame relay）是于1992年兴起的一种新的公用数据网通讯协议
+
+高级数据链路控制（High-Level Data Link Control或简称HDLC），是一个在同步网上传输数据、面向比特的数据链路层协议
+
+异步传输模式（英语：Asynchronous Transfer Mode，ATM）
+
+#### Point-to-Point VPNs
+
+A popular alternative to WAN technologies are point-to-point VPNs.
+
+Also called site-to-site VPN
+
+For now, it's enough to know that the cloud lets companies outsource all or part of their different pieces of infrastructure to other companies to manage.
+
+You just have to pay another company to handle everything about your email service. Instead, companies can use point-to-point VPNs to make sure that there are different sites can still communicate with each other. Like the way that a traditional VPN setup.
+
+#### Wireless Networking
+
+IEEE 802.11 standards - WIFI
+
+Through radiowaves - FM broadcast band - WiFi operates on : from 2.4GHz to 5GHz
+
+802.11b, 802.11a, 802.11g, 802.11n, and 802.11ac.
+
+802.11 protocols define how we operate at both the physical and the data link layers
+
+Access point: a device that bridges the wire and wireless portion of network.
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Wireless%20Network.png)
+
+**802.11 Frame**
+
+[IEEE 802.11](https://zh.wikipedia.org/wiki/IEEE_802.11)
+
+Address 1: Normal source address field: MAC address of the sending device
+Address 2: Destination field
+Address 3: Receive address
+Address 4: Transmitter address
+
+The receiver address would be the MAC address of the access point that should receive the frame, and the transmitter address would be the MAC address of whatever has just transmitted the frame. In lots of situations, the destination and receiver address might be the same. Usually, the source and transmitter addresses are also the same. 
+
+All addresses in an 802.11 frame are Mac addresses, each of those four fields is 6 bytes long
+
+#### Wireless Network Configurations
+
+ad-hoc network: ad-hoc networks can be powerful tools during disaster situations.
+
+WLAN: e.g: wifi router
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/WLAN.png)
+
+Mesh networks: combination of upper 2, like wifi extender
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/MeshNetwork.png)
+
+#### Wireless channels
+**Important!**
+
+Channels are smaller frequency bands used by a wireless network to solve **Collision Domains** work as **switches** in wired network.
+
+2.4Ghz band means operate on bands from 2.4Ghz to 2.5Ghz, between them are a number of channels
+
+Channel also have band width, so might have overlap, need buffer for them.
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Wifi%20Channels.png)
+
+Today, most wireless networking equipment is built to auto sense what channels are most congested. Some access points will only perform this analysis when they start up, others will dynamically change their channel as needed. 
+
+The point is to understand how collision domains are a necessary problem with all wireless networks, and how you can use your knowledge in this space to optimize wireless network deployments. You want to make sure that both your own access points and those of neighboring businesses overlap channels as little as possible.
