@@ -555,6 +555,8 @@ DSL: use DSLAM
 ADSL: asymmetric digital subscriber line: Upload < download speed, most for clients use    
 SDSL: symmetric digital subscriber line
 
+Compare with T1: twisted pair copper used by modern telephone lines was capable of transmitting way more data than what was needed for voice-to-voice calls. By operating at a frequency range that didn't interfere with normal phone calls, a technology known as digital subscriber line or DSL was able to send much more data across the wire than traditional dial-up technologies
+
 #### Cable broadband
 
 Cable broadband is based on cabled TV systems (first don't have since people use TV towers and antennas)
