@@ -670,3 +670,225 @@ Channel also have band width, so might have overlap, need buffer for them.
 Today, most wireless networking equipment is built to auto sense what channels are most congested. Some access points will only perform this analysis when they start up, others will dynamically change their channel as needed. 
 
 The point is to understand how collision domains are a necessary problem with all wireless networks, and how you can use your knowledge in this space to optimize wireless network deployments. You want to make sure that both your own access points and those of neighboring businesses overlap channels as little as possible.
+
+#### Wireless security
+
+The number of bits in an encryption key corresponds to how secure it is, the more bits in a key the longer it takes for someone to crack the encryption.
+
+1. WEP: Wired Equivalent Privacy  有线等效加密
+
+40 bits in encryption algorithm
+
+2. WPA: Wired Protected Access  Wi-Fi访问保护
+128 bits 
+
+
+3. WPA2: 256 bits
+
+4. MAC filtering
+
+#### Cellular Networking 蜂窝网络
+
+AKA Mobile Networking
+
+Operate over radio-waves like 802.11, but the radio wave frequencies can travel much longer, many kms.
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Celluar%20Network.png)
+
+Neighbouring cells are set up to use bands that don't overlap.
+
+### Trouble shooting
+
+#### Ping: 
+
+ICMP: Internet control message protocol
+
+Type(8 bits), Code(8 bits), Checksum(16bits),    
+Rest of header(32 bits),    
+Data section
+
+Ping: send a type of ICPM message called 'echo request' - > get a 'echo reply'
+
+#### Traceroute
+
+Utility that let you discover the path between two nodes, and gives you information about each hop along the way.
+
+Princple: use TTL =1,2,3 to return ICMP message with Time Exceed message
+
+For each hop, Will send out 3 identical packets and return IP, hostname(if have), hop time, no. of the hops
+
+in Windows: tracert
+
+2 similar tools: mtr (mac os/linux), pathping(windows)
+
+Could be consider at long running traceroute
+
+#### Testing Port Connectivity (transport layer)
+
+2 tools:
+
+netcat - Linux:
+
+    Command: **nc** -v (verbose) -z (zero input/output) (host) (port)
+
+Sample: nc -v -z google.com 80
+
+Test-NetConnection - Windows (open in Powershell):
+
+    Command: Test-NetConnection [-port] google.com
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/powershell.png)
+
+### DNS
+#### Name Resolution Tools
+
+nslookup:
+
+    nslookup google.com
+
+or interactive mode
+
+    nslookup
+    >server 8.8.8.8
+
+    >set type=MX (OR AAAA,etc)
+    >google.com
+
+    >set debug
+
+
+#### Public DNS Servers
+
+A recursive name server almost always gives you the access to recursive name server as part of the service it provides.
+
+*But, most businesses also run their own DNS servers. In the very least, this is needed to resolve names of internal hosts. Anything from naming a computer, Nayas dash laptop, to being able to refer to a printer by name instead of an IP requires your own name server.*
+
+A third option is to use a DNS as a service provider.
+
+1. Might provided by Lever 3 communication company.    
+    - The IP addresses for Level 3s public DNS servers are 4.2.2.1 through 4.2.2.6.
+
+2. Google public DNS: 8.8.8.8, 8.8.4.4, free to use
+
+Hijacking outbound DNS requests with faulty responses is an easy way to redirect your users to malicious sites.
+
+#### DNS Registration and Expiration
+
+Registrar: an organisation responsible for assigning individual domain names to others.
+
+Domain name could also be transferred by transferring a string of unique characters when the domains was generated(always in txt mode).
+
+The string should be also configured in the DNS settings, it can be confirmed that you both own the domain and approve its transfer. 
+
+Domain names are only available for a certain period of time, need to top up in case it not available anymore.
+
+DNS is a global system managed in a tiered hierarchy with **ICANN** at the top level.
+
+#### Hosts files
+
+Host file: a flat file that contains on each line a network address followed by the host name it can be referred to as
+
+Ancient technology before DNS
+
+    E.g: 1.2.3.4 webserver  -> user can input 'webserver' in the URL bar -> will go to 1.2.3.4
+
+Loopback address: 127.0.0.1 for IPv4 and ::1 for IPv6
+
+For redirect the traffic to yourself:
+
+Sending traffic to a loopback address bypasses all network infrastructure itself, and traffic like that never leaves the node.
+
+*Hosts files are a popular way for computer viruses to disrupt and redirect user's traffic. It's not a great idea to use host files today.*
+
+Host files are examined **before** a DNS resolution attempt occurs on just about every major operating system.
+
+### The cloud
+
+Concept:
+
+- a technological approach where computing resources are provisioned in a shareable way so that lots of users get what they need when they need it
+
+- a new model in computing where large clusters of machines let us use the total resources available in a better way
+
+Virtualization: a single physical machine called a host could run many individual virtual instances called guests.
+
+Hypervisor: a software manages virtual machines, offering guests a virtual operation platform that's indistinguishable from actual hardware.
+
+Traditional method: 80GB RAM
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Cloud-traditional%20way.png)
+
+Cloud method: 50GB RAM
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/Cloud-cloud%20way.png)
+
+If you need a load balancer, you can just use their solution. Plus, if any underlying hardware breaks, they just move your virtual instance to another machine without you even noticing.
+
+Public cloud: a large cluster of machines run by another company
+
+Private cloud: entirely used by a single large corporation and generally physically hosted on its own premises
+
+Hybrid cloud: run things like their most sensitive proprietary technologies on a private cloud while entrusting their less sensitive servers to a public cloud
+
+#### Everything as a Service
+
+IaaS
+
+PaaS
+
+SaaS:
+
+i.e: gmail, office365, things could be ran in a browser
+
+#### Cloud Storage
+
+Cloud storage providers are even global in scale which lets you make your data more readily available for users all over the world. This also provides protection against data loss, since if one region of storage experience has problems, you can probably still access your data in a different region.
+
+### IANA
+
+#### IPv6 Addressing and Subnetting
+
+IPv4: 32-bit
+
+4 octets of decimal numbers
+
+IPv6: 128-bit
+
+8 groups of 16 bits: **2001:0db8:**0000:0000:0000:ff00:0012:3456 (full IPv6 address)
+
+Shorten the IPv6 address:
+1. remove any leading zeros from a group
+	- 2001:db8:0:0:0:ff00:12:3456
+2. any number of consecutive groups composed of just zeros can be replace with two colons
+	- 2001:db8::ff00:12:3456
+
+Loopback: 127.0.0.1(IPv4) -> 0000:0000:0000:0000:0000:0000:0000:0001 -> ::1
+
+2001:0db8: reserved for documentation and education, or for books and courses
+FF00: multicast
+
+FE80: link-local unicast
+
+2001:0db8:0000:0000|:|0000:ff00:0012:3456
+--|--|--
+Network ID||Host ID
+
+#### IPv6 header
+
+![](https://github.com/ZSiltitan/Coursera-Operating-systems/blob/master/Pictures/The%20Bits%20and%20Bytes%20of%20Computer%20Networking/IPv6Header.png)
+
+#### IPv6 and IPv4 Harmony
+
+IPv4 -> IPv6: Any IPv6 address that begins with 80 zeros, and is then followed by 16 ones is understood to be part of the IPv4 mapped address space. The remaining 32 bits of the IPv6 address is just the same 32 bits of the IPv4 address it's meant to represent.
+
+192.168.1.1 = 0:0:0:0:0:ffff:d1ad:35a7
+
+IPv6 -> IPv4: IPv6 tunnels
+
+IPv6 tunnels: IPv6 tunnel servers take incoming IPv6 traffic and encapsulate it within traditional IPv4 datagrams, then delivered across the IPv4 Internet space where it's received by another IPv6 tunnel server
+
+IPv6 tunnel broker: companies that provide IPv6 tunneling endpoints for you, so you don't have to introduce additional equipment to your network.
+
+- 6in4
+- Tunnel Setup Protocol
+- AYIYA
+
